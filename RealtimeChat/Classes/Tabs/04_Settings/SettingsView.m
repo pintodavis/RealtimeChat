@@ -13,6 +13,7 @@
 #import "ProgressHUD.h"
 
 #import "utilities.h"
+#import <Firebase/Firebase.h>
 
 #import "SettingsView.h"
 #import "BlockedView.h"
@@ -73,7 +74,9 @@
 {
 	[super viewDidAppear:animated];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	if ([PFUser currentUser] != nil)
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defaults objectForKey:@"uid"];
+	if (uid != nil)
 	{
 		[self loadUser];
 	}

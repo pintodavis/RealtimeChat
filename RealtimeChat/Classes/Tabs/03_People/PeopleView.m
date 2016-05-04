@@ -71,8 +71,10 @@
 {
 	[super viewDidAppear:animated];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	if ([PFUser currentUser] != nil)
-	{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defaults objectForKey:@"uid"];
+    if (uid != nil)
+    {
 		if (skipLoading) skipLoading = NO; else [self loadPeople];
 	}
 	else LoginUser(self);

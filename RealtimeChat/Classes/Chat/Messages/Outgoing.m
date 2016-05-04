@@ -213,7 +213,7 @@
 - (void)sendMessage:(NSMutableDictionary *)item
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	item[@"text"] = EncryptText(groupId, item[@"text"]);
+//	item[@"text"] = EncryptText(groupId, item[@"text"]);
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	Firebase *firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/Message/%@", FIREBASE, groupId]];
 	Firebase *reference = [firebase childByAutoId];

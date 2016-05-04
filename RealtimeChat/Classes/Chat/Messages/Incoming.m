@@ -69,7 +69,8 @@
 	NSString *userId = item[@"userId"];
 	NSDate *date = String2Date(item[@"date"]);
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	NSString *text = DecryptText(groupId, item[@"text"]);
+//	NSString *text = DecryptText(groupId, item[@"text"]);
+    NSString *text = item[@"text"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	return [[JSQMessage alloc] initWithSenderId:userId senderDisplayName:name date:date text:text];
 }

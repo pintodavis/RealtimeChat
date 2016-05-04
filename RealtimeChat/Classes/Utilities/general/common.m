@@ -11,6 +11,7 @@
 
 #import "common.h"
 #import "WelcomeView.h"
+#import "RegisterView.h"
 #import "PremiumView.h"
 #import "NavigationController.h"
 
@@ -18,7 +19,7 @@
 void LoginUser(id target)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:[[WelcomeView alloc] init]];
+	NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:[[RegisterView alloc] init]];
 	[target presentViewController:navigationController animated:YES completion:nil];
 }
 

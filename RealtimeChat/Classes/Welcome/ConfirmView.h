@@ -10,16 +10,9 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import <UIKit/UIColor.h>
-
-#import "JSQMessages.h"
-#import "RNGridMenu.h"
-#import "IQAudioRecorderController.h"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-@interface ChatView : JSQMessagesViewController <RNGridMenuDelegate, UIImagePickerControllerDelegate, IQAudioRecorderControllerDelegate>
+@interface ConfirmView : UITableViewController <UITextFieldDelegate>
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-
-- (id)initWith:(NSString *)groupId_;
 
 @end

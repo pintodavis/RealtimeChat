@@ -71,7 +71,7 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidLoad];
-	self.title = @"Chat";
+	self.title = @"Fun-Events";
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	loads = [[NSMutableArray alloc] init];
 	items = [[NSMutableArray alloc] init];
@@ -441,8 +441,8 @@
 	if (action == @selector(actionSave:))
 	{
 		if ([item[@"type"] isEqualToString:@"picture"]) return YES;
-		if ([item[@"type"] isEqualToString:@"audio"]) return YES;
-		if ([item[@"type"] isEqualToString:@"video"]) return YES;
+		/*if ([item[@"type"] isEqualToString:@"audio"]) return YES;
+		if ([item[@"type"] isEqualToString:@"video"]) return YES;*/
 	}
 	return NO;
 }
@@ -549,7 +549,7 @@
 		}
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	if ([item[@"type"] isEqualToString:@"video"])
+/*	if ([item[@"type"] isEqualToString:@"video"])
 	{
 		VideoMediaItem *mediaItem = (VideoMediaItem *)message.media;
 		if (mediaItem.status == STATUS_FAILED)
@@ -577,7 +577,7 @@
 			[self presentMoviePlayerViewControllerAnimated:moviePlayer];
 			[moviePlayer.moviePlayer play];
 		}
-	}
+	}*/
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if ([item[@"type"] isEqualToString:@"location"])
 	{
@@ -602,14 +602,16 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[self.view endEditing:YES];
-	NSArray *menuItems = @[[[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_camera"] title:@"Camera"],
-						   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_audio"] title:@"Audio"],
+    
+    NSArray *menuItems = @[[[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_camera"] title:@"Camera"],
+						 /*  [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_audio"] title:@"Audio"],*/
 						   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_pictures"] title:@"Pictures"],
-						   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_videos"] title:@"Videos"],
+						 /*  [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_videos"] title:@"Videos"], */
 						   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_location"] title:@"Location"],
 						   [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"chat_stickers"] title:@"Stickers"]];
 	RNGridMenu *gridMenu = [[RNGridMenu alloc] initWithItems:menuItems];
 	gridMenu.delegate = self;
+    gridMenu.backgroundColor = [ UIColor purpleColor];
 	[gridMenu showInViewController:self center:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2)];
 }
 
@@ -650,9 +652,9 @@
 {
 	[gridMenu dismissAnimated:NO];
 	if ([item.title isEqualToString:@"Camera"])		PresentMultiCamera(self, YES);
-	if ([item.title isEqualToString:@"Audio"])		PresentAudioRecorder(self);
+	/*if ([item.title isEqualToString:@"Audio"])		PresentAudioRecorder(self);*/
 	if ([item.title isEqualToString:@"Pictures"])	PresentPhotoLibrary(self, YES);
-	if ([item.title isEqualToString:@"Videos"])		PresentVideoLibrary(self, YES);
+/*	if ([item.title isEqualToString:@"Videos"])		PresentVideoLibrary(self, YES);*/
 	if ([item.title isEqualToString:@"Location"])	[self messageSend:nil Video:nil Picture:nil Audio:nil];
 	if ([item.title isEqualToString:@"Stickers"])	[self actionStickers];
 }
